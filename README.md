@@ -23,11 +23,6 @@ Architecturally when you create a public hosted zone, Route53 allocate 4 public 
 Inside a public hosted zone, you create resource records, which are the actual item of data, which DNS uses.
 
 
-
-
-
-
-
 ## Private Hosted Zone
 
 It is not public , as it is associated with VPCs within AWS and it's only accessible within VPCs that it's associated with.
@@ -37,3 +32,14 @@ you can associate private hosted zone with VPCs in your account using console UI
 Everything else is same. You can use them to create resource records, and these are resolvable within VPCs.
 
 It is also possible to use a technique called split-view or split-horizon DNS,which is where you have public and private hosted zone of the same name. You might do this if you want certain system to be accessible via your bsiness DNS, but only within your environment, and the public website when anyone access from outside of your corporate network.
+
+
+## CName vs Route53 Alias
+
+The domain itself with no record is apex. 
+so www.netflix.com isnt the apex, netflix.com is. 
+www.cantrill.io isn't the apex, cantrill.io is. 
+(netflix.com/cantrill.io)->its the naked domain, the domain on its own, the apex.) 
+
+A cname is a record, which points at another name. 
+so www.netflix.com => server1.netflix.com is an example. 

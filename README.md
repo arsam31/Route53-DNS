@@ -84,3 +84,13 @@ Checks can be of three types:
 - Endpoint : these are checks which access the health of an actual endpoint that you specify.
 - CloudWatch Alarm Checks.
 - Checks of checks : We can create health checks which will check applications wide health.
+
+## MultiValue Routing
+
+See ScreenShots.
+
+## Weighted Routing
+
+(see the ss first)
+
+Health checks do not remove records from the calculation. It will just skip the unhealthy record and move to next until a healthy record is selected.

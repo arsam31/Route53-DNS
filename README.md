@@ -94,3 +94,10 @@ See ScreenShots.
 (see the ss first)
 
 Health checks do not remove records from the calculation. It will just skip the unhealthy record and move to next until a healthy record is selected.
+
+
+## Geoproximity Routing
+
+It aims to provide records which are as closer to your cusotmers as possible.
+
+By adding "+" and "-" bias, we can increase or decrease the size of a region to attract the trafic even if the region is far away from the customer, we can still increase the region size and route the customer to that region. See the last ScreenShot in this folder to understand this concept.

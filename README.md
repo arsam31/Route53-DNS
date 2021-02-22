@@ -62,9 +62,25 @@ There are many record like A record, AAA record, MX record, TXT record, NS recor
 ## Simple Routing
 
 It does **not support** health checks.
-
 It supports one record per name.
 Each record have multipple values.
 All values are returned in a random order.
 Client chooses and use one value.
 Use simple routing when you want to route request towards **one service** such as web server
+
+## Health Checks
+
+Health checks are separate from Route53 but are used by records inside Route53. It means you do not create checks with in records but you configure them separately.
+
+Health checks are performed by health checkers which are distributed globally.This means if you are checking the health of systems which are hosted on public internet, then you need to allow these checks to occur from the health checkers.
+
+Healh checks are not just limited to aws targets,you can check anything which is accessible over the public internet. It just needs an IP address. The checks occur every 30 seconds by default or can be increased to every 10 seconds at an additional cost.
+
+Checks can be TCP where route53 tries to establish a TCP connection and needs to be successful within 10 seconds.
+
+With HTTP and HTTPS checks you can perform string matching, route53 tries to establish a TCP connection and needs to be successful within 4 seconds, and in addition, endpoint must respond with a HTTP status code in 200 range or 300 range with in 2 seconds after connection and route53 health checker when it receives the status code it must also receive the response body from the end point within the next 2 seconds. Route 53 searches for the string that you specify form the response body. The string must appear entirely in the first 5,120 bytes in the response body, otherwise the endpoint fails the health checks.This way you can check the app is responding correctly by checking the response and now based on these health checks,an endpoint can be checked wheather it's healthy or unhealthy.
+
+Checks can be of three types:
+- Endpoint : these are checks which access the health of an actual endpoint that you specify.
+- CloudWatch Alarm Checks.
+- Checks of checks : We can create health checks which will check applications wide health.

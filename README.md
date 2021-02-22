@@ -21,3 +21,19 @@ Now a public hosted zone is a DNS database,so a zone file,which is hosted by Rou
 Architecturally when you create a public hosted zone, Route53 allocate 4 public name servers, and it's on those nameservers that the zone file is hosted.And to integrate it with the pblic DNS system,you change the name server records for that domain to point at those 4 Route53 name servers.
 
 Inside a public hosted zone, you create resource records, which are the actual item of data, which DNS uses.
+
+
+
+
+
+
+
+## Private Hosted Zone
+
+It is not public , as it is associated with VPCs within AWS and it's only accessible within VPCs that it's associated with.
+
+you can associate private hosted zone with VPCs in your account using console UI, CLI and API and even in different accounts if you use API and CLI only.
+
+Everything else is same. You can use them to create resource records, and these are resolvable within VPCs.
+
+It is also possible to use a technique called split-view or split-horizon DNS,which is where you have public and private hosted zone of the same name. You might do this if you want certain system to be accessible via your bsiness DNS, but only within your environment, and the public website when anyone access from outside of your corporate network.

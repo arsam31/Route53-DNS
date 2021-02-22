@@ -58,3 +58,13 @@ Many AWS services like ELB, they do not give you an IP address to use,which they
 See the ScreenShots for more.
 
 There are many record like A record, AAA record, MX record, TXT record, NS record, A alias record, CName alias record.
+
+## Simple Routing
+
+It does **not support** health checks.
+
+It supports one record per name.
+Each record have multipple values.
+All values are returned in a random order.
+Client chooses and use one value.
+Use simple routing when you want to route request towards **one service** such as web server

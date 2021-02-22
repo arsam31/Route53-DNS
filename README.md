@@ -43,3 +43,16 @@ www.cantrill.io isn't the apex, cantrill.io is.
 
 A cname is a record, which points at another name. 
 so www.netflix.com => server1.netflix.com is an example. 
+
+An A record is .. name => IP. 
+so www.netflix.com => 1.3.3.7
+
+An alias can be an A Alias, or a CNAME Alias,its just a special type of A or CNAME
+
+Alias is free to use.
+
+Alias can be used at the apex of the domain
+
+Many AWS services like ELB, they do not give you an IP address to use,which they give you a DNS name.This means if you only use CNAME names pointing the naked netflix.com at an ELB, would not be supported.
+
+See the ScreenShots for more.

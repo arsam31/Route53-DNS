@@ -56,3 +56,5 @@ Alias can be used at the apex of the domain
 Many AWS services like ELB, they do not give you an IP address to use,which they give you a DNS name.This means if you only use CNAME names pointing the naked netflix.com at an ELB, would not be supported.
 
 See the ScreenShots for more.
+
+There are many record like A record, AAA record, MX record, TXT record, NS record, A alias record, CName alias record.
